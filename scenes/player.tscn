@@ -27,11 +27,11 @@ autoplay = "idle"
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_player")
 
-[node name="InteractionArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1906872785]
 collision_layer = 2
 collision_mask = 28
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=651079617]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_interaction")
 
@@ -39,7 +39,7 @@ shape = SubResource("CapsuleShape2D_interaction")
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 950
+limit_right = 900
 limit_bottom = 270
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
