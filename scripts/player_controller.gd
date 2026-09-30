@@ -10,11 +10,24 @@ extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
 
+@export_group("冲刺技能")
+@export var dash_speed: float = 200.0
+@export var dash_doration:float = 0.5 #冲刺持时间
+@export var dash_cooltime:float = 1.0 
+
+var is_dashing : bool = false
+var can_dash : bool = true #是否冷却
+var dash_direction: Vector2 = Vector2.ZERO # 冲刺朝向
+
 var flying : bool = false
 var last_space_press_time := -1000
 
 func _physics_process(delta: float) -> void:
-
+	if is_dashing:
+		velocity = dash_direction * dash_speed
+		move_and_slide()
+		return
+	
 	if !flying:
 		apply_gravity(delta)
 		handle_jump()
@@ -22,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		handle_vertical_movement(delta)
 	
 	handle_horizontal_movement(delta)
+	handle_shift_pressed()
 	update_sprite_direction()
 	move_and_slide()
 
@@ -84,3 +98,23 @@ func handle_space_pressed() -> void:
 		last_space_press_time = -1000
 	else:
 		last_space_press_time = current_time
+
+func handle_shift_pressed() -> void:
+	if Input.is_action_just_pressed("dash") and can_dash and not is_dashing:
+		start_dash()
+		
+func start_dash():
+	is_dashing = true
+	can_dash = false
+	
+	var diraction: = Input.get_axis("move_left","move_right")
+	if diraction != 0:
+		dash_direction = Vector2(diraction, 0).normalized()
+	else:
+		#转向翻转
+		dash_direction = Vector2.LEFT if sprite.flip_h else Vector2.RIGHT
+	await get_tree().create_timer(dash_doration).timeout
+	is_dashing = false
+	
+	await get_tree().create_timer(dash_cooltime).timeout
+	can_dash = true
