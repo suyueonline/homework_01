@@ -17,7 +17,7 @@ script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=921388463]
 texture_filter = 1
-position = Vector2(0, -3)
+position = Vector2(0, -9)
 scale = Vector2(0.08, 0.08)
 sprite_frames = ExtResource("2_frames")
 animation = &"idle"
