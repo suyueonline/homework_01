@@ -171,8 +171,6 @@ tile_set = ExtResource("5_4etix")
 [node name="Player" parent="Level/ActorsAndCharacters" unique_id=1343528246 instance=ExtResource("9_bauo3")]
 z_index = 10
 position = Vector2(107, 139)
-rotation = -3.1415927
-scale = Vector2(1, -1)
 
 [node name="PrefabInstances" type="Node2D" parent="Level" unique_id=2013556771]
 

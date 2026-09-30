@@ -1,29 +1,45 @@
 [gd_scene format=3 uid="uid://c1u8k6ny02t4y"]
 
-[ext_resource type="Texture2D" uid="uid://cgkn1cd8uhunb" path="res://assets/game/characters/player_green_idle.png" id="1_character"]
 [ext_resource type="Script" uid="uid://b0gltif7vthau" path="res://scripts/player_controller.gd" id="1_g2els"]
+[ext_resource type="SpriteFrames" path="res://assets/game/characters/vesna_frames.tres" id="2_frames"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_player"]
-radius = 5.0
-height = 17.0
+radius = 6.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_interaction"]
+radius = 7.0
+height = 22.0
 
 [node name="Player" type="CharacterBody2D" unique_id=2098904787]
 collision_layer = 2
 script = ExtResource("1_g2els")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=921388463]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=921388463]
 texture_filter = 1
-texture = ExtResource("1_character")
+position = Vector2(0, -3)
+scale = Vector2(0.08, 0.08)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=151099089]
-position = Vector2(0, 2)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_player")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 28
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_interaction")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1444263794]
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 900
+limit_right = 950
 limit_bottom = 270
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0

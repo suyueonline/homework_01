@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/idle/0.png" id="1_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/0.png" id="2_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/1.png" id="3_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/2.png" id="4_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/3.png" id="5_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/4.png" id="6_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/5.png" id="7_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/6.png" id="8_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/7.png" id="9_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/8.png" id="10_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/run/9.png" id="11_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/0.png" id="12_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/1.png" id="13_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/2.png" id="14_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/3.png" id="15_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/4.png" id="16_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/5.png" id="17_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/6.png" id="18_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/7.png" id="19_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/8.png" id="20_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/dash/9.png" id="21_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/attack/0.png" id="22_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/attack/1.png" id="23_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/attack/2.png" id="24_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/attack/3.png" id="25_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/attack/4.png" id="26_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/skill_e/0.png" id="27_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/skill_e/1.png" id="28_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/skill_e/2.png" id="29_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/skill_e/3.png" id="30_tex"]
+[ext_resource type="Texture2D" path="res://assets/game/characters/vesna/skill_e/4.png" id="31_tex"]
+
+[resource]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("1_tex")}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("2_tex")}, {"duration": 1.0, "texture": ExtResource("3_tex")}, {"duration": 1.0, "texture": ExtResource("4_tex")}, {"duration": 1.0, "texture": ExtResource("5_tex")}, {"duration": 1.0, "texture": ExtResource("6_tex")}, {"duration": 1.0, "texture": ExtResource("7_tex")}, {"duration": 1.0, "texture": ExtResource("8_tex")}, {"duration": 1.0, "texture": ExtResource("9_tex")}, {"duration": 1.0, "texture": ExtResource("10_tex")}, {"duration": 1.0, "texture": ExtResource("11_tex")}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("12_tex")}, {"duration": 1.0, "texture": ExtResource("13_tex")}, {"duration": 1.0, "texture": ExtResource("14_tex")}, {"duration": 1.0, "texture": ExtResource("15_tex")}, {"duration": 1.0, "texture": ExtResource("16_tex")}, {"duration": 1.0, "texture": ExtResource("17_tex")}, {"duration": 1.0, "texture": ExtResource("18_tex")}, {"duration": 1.0, "texture": ExtResource("19_tex")}, {"duration": 1.0, "texture": ExtResource("20_tex")}, {"duration": 1.0, "texture": ExtResource("21_tex")}],
+"loop": true,
+"name": &"dash",
+"speed": 16.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("12_tex")}, {"duration": 1.0, "texture": ExtResource("13_tex")}, {"duration": 1.0, "texture": ExtResource("14_tex")}, {"duration": 1.0, "texture": ExtResource("15_tex")}, {"duration": 1.0, "texture": ExtResource("16_tex")}, {"duration": 1.0, "texture": ExtResource("17_tex")}, {"duration": 1.0, "texture": ExtResource("18_tex")}, {"duration": 1.0, "texture": ExtResource("19_tex")}, {"duration": 1.0, "texture": ExtResource("20_tex")}, {"duration": 1.0, "texture": ExtResource("21_tex")}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("22_tex")}, {"duration": 1.0, "texture": ExtResource("23_tex")}, {"duration": 1.0, "texture": ExtResource("24_tex")}, {"duration": 1.0, "texture": ExtResource("25_tex")}, {"duration": 1.0, "texture": ExtResource("26_tex")}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("27_tex")}, {"duration": 1.0, "texture": ExtResource("28_tex")}, {"duration": 1.0, "texture": ExtResource("29_tex")}, {"duration": 1.0, "texture": ExtResource("30_tex")}, {"duration": 1.0, "texture": ExtResource("31_tex")}],
+"loop": false,
+"name": &"skill_e",
+"speed": 10.0
+}]
