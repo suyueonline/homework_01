@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://be3xpifxsry4i"]
+
+[ext_resource type="Script" uid="uid://dtwwbm4oxjdkr" path="res://scripts/victory.gd" id="1_vic_script"]
+[ext_resource type="SpriteFrames" uid="uid://c3k02l8vm4rqg" path="res://assets/game/characters/vesna_frames.tres" id="2_frames"]
+
+[node name="Victory" type="Control" unique_id=195505744]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vic_script")
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=1971887349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.156863, 0.235294, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1349116566]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 40.0
+offset_right = 250.0
+offset_bottom = 85.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "🎉 通 关 大 捷 ！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="Control" parent="." unique_id=1201050566]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterAnim" type="AnimatedSprite2D" parent="CenterContainer" unique_id=1818593796]
+texture_filter = 1
+scale = Vector2(0.18, 0.18)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1473923040]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -140.0
+offset_right = 110.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="RestartButton" type="Button" parent="VBoxContainer" unique_id=2071233805]
+texture_filter = 1
+custom_minimum_size = Vector2(220, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "重新挑战 (按 R 键)"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=743055781]
+texture_filter = 1
+custom_minimum_size = Vector2(220, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "退出游戏 (按 ESC)"

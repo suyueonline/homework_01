@@ -1,0 +1,582 @@
+[gd_scene format=4 uid="uid://djr0rt7enslyk"]
+
+[ext_resource type="Texture2D" uid="uid://djmk0srfgyafe" path="res://assets/game/backgrounds/cloud_left.png" id="1_sx8yt"]
+[ext_resource type="Texture2D" uid="uid://dptqmtay4plwp" path="res://assets/game/backgrounds/cloud_trees.png" id="2_k5r18"]
+[ext_resource type="Texture2D" uid="uid://dys7320ghojh6" path="res://assets/game/backgrounds/cloud_hills.png" id="3_w5nkq"]
+[ext_resource type="Texture2D" uid="uid://1b8hp0rm864l" path="res://assets/game/backgrounds/cloud_right.png" id="4_bk4f1"]
+[ext_resource type="TileSet" uid="uid://dkowcf1ljh41j" path="res://assets/game/tilesets/kenney_terrain_tileset.tres" id="5_wu3ic"]
+[ext_resource type="PackedScene" uid="uid://c1u8k6ny02t4y" path="res://scenes/player.tscn" id="6_vv2vh"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/hazards/spikes_double.tscn" id="9_1rxxv"]
+[ext_resource type="Texture2D" uid="uid://wmoyejtjsmhh" path="res://assets/game/obstacles/spikes_double.png" id="10_ld1e4"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/interactables/spring_red.tscn" id="11_detxl"]
+[ext_resource type="Texture2D" uid="uid://b7wkoed3ty7em" path="res://assets/game/interactables/spring_red.png" id="12_58p72"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/interactables/door.tscn" id="13_365g5"]
+[ext_resource type="Texture2D" uid="uid://bx4wkt1pht07w" path="res://assets/game/interactables/door.png" id="15_os8re"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/collectibles/coin_gold_round.tscn" id="16_ciptj"]
+[ext_resource type="Texture2D" uid="uid://cb8de6nm1sbvw" path="res://assets/game/collectibles/coin_gold_round.png" id="17_jnlnj"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/collectibles/gem_blue.tscn" id="18_nhai6"]
+[ext_resource type="Texture2D" uid="uid://brdwkyck32qp1" path="res://assets/game/collectibles/gem_blue.png" id="19_0vrl8"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/signs/direction_sign_right.tscn" id="20_1ke33"]
+[ext_resource type="Texture2D" uid="uid://fp71at0prlpe" path="res://assets/game/signs/direction_sign_right.png" id="21_mnu1b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_player"]
+radius = 6.0
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="Shape_spikes"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_spring"]
+size = Vector2(14, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(28, 36)
+
+[sub_resource type="CircleShape2D" id="Shape_coin"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="Shape_gem"]
+radius = 6.0
+
+[node name="Level3" type="Node2D" unique_id=2067487917]
+
+[node name="Level" type="Node2D" parent="." unique_id=1041485278]
+
+[node name="Background" type="Node2D" parent="Level" unique_id=337857695]
+
+[node name="SkyColor" type="Polygon2D" parent="Level/Background" unique_id=461892362]
+z_index = -30
+color = Color(0.85, 0.82, 0.92, 1)
+polygon = PackedVector2Array(0, 0, 1159, -6, 1155, 134, 1159, 269, 0, 270)
+
+[node name="SkyColor2" type="Polygon2D" parent="Level/Background" unique_id=1658486504]
+z_index = -30
+position = Vector2(825, -4)
+color = Color(0.85, 0.82, 0.92, 1)
+polygon = PackedVector2Array(0, 0, 1159, -6, 1155, 134, 1159, 269, 0, 270)
+
+[node name="SkyColor3" type="Polygon2D" parent="Level/Background" unique_id=1948133342]
+z_index = -30
+position = Vector2(-1009, 5)
+color = Color(0.85, 0.82, 0.92, 1)
+polygon = PackedVector2Array(0, 0, 1159, -6, 1155, 134, 1159, 269, 0, 270)
+
+[node name="CloudBand_1" type="Sprite2D" parent="Level/Background" unique_id=1804087130]
+z_index = -20
+texture_filter = 1
+position = Vector2(12, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_2" type="Sprite2D" parent="Level/Background" unique_id=78212097]
+z_index = -20
+texture_filter = 1
+position = Vector2(36, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_3" type="Sprite2D" parent="Level/Background" unique_id=1129347030]
+z_index = -20
+texture_filter = 1
+position = Vector2(60, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_4" type="Sprite2D" parent="Level/Background" unique_id=1456186081]
+z_index = -20
+texture_filter = 1
+position = Vector2(84, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_5" type="Sprite2D" parent="Level/Background" unique_id=392082216]
+z_index = -20
+texture_filter = 1
+position = Vector2(108, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_6" type="Sprite2D" parent="Level/Background" unique_id=726982936]
+z_index = -20
+texture_filter = 1
+position = Vector2(132, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_7" type="Sprite2D" parent="Level/Background" unique_id=1046945279]
+z_index = -20
+texture_filter = 1
+position = Vector2(156, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_8" type="Sprite2D" parent="Level/Background" unique_id=594285643]
+z_index = -20
+texture_filter = 1
+position = Vector2(180, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_9" type="Sprite2D" parent="Level/Background" unique_id=696969693]
+z_index = -20
+texture_filter = 1
+position = Vector2(204, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_10" type="Sprite2D" parent="Level/Background" unique_id=854282410]
+z_index = -20
+texture_filter = 1
+position = Vector2(228, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_11" type="Sprite2D" parent="Level/Background" unique_id=220029219]
+z_index = -20
+texture_filter = 1
+position = Vector2(252, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_12" type="Sprite2D" parent="Level/Background" unique_id=1051992181]
+z_index = -20
+texture_filter = 1
+position = Vector2(276, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_13" type="Sprite2D" parent="Level/Background" unique_id=1274677897]
+z_index = -20
+texture_filter = 1
+position = Vector2(300, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_14" type="Sprite2D" parent="Level/Background" unique_id=1705428517]
+z_index = -20
+texture_filter = 1
+position = Vector2(324, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_15" type="Sprite2D" parent="Level/Background" unique_id=992977246]
+z_index = -20
+texture_filter = 1
+position = Vector2(348, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_16" type="Sprite2D" parent="Level/Background" unique_id=159366469]
+z_index = -20
+texture_filter = 1
+position = Vector2(372, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_17" type="Sprite2D" parent="Level/Background" unique_id=351469044]
+z_index = -20
+texture_filter = 1
+position = Vector2(396, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_18" type="Sprite2D" parent="Level/Background" unique_id=2041431636]
+z_index = -20
+texture_filter = 1
+position = Vector2(420, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_19" type="Sprite2D" parent="Level/Background" unique_id=2055721235]
+z_index = -20
+texture_filter = 1
+position = Vector2(444, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_20" type="Sprite2D" parent="Level/Background" unique_id=297265363]
+z_index = -20
+texture_filter = 1
+position = Vector2(468, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_21" type="Sprite2D" parent="Level/Background" unique_id=1919942037]
+z_index = -20
+texture_filter = 1
+position = Vector2(492, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_22" type="Sprite2D" parent="Level/Background" unique_id=1738559495]
+z_index = -20
+texture_filter = 1
+position = Vector2(516, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_23" type="Sprite2D" parent="Level/Background" unique_id=722305464]
+z_index = -20
+texture_filter = 1
+position = Vector2(540, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_24" type="Sprite2D" parent="Level/Background" unique_id=1123024844]
+z_index = -20
+texture_filter = 1
+position = Vector2(564, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_25" type="Sprite2D" parent="Level/Background" unique_id=1411075292]
+z_index = -20
+texture_filter = 1
+position = Vector2(588, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_26" type="Sprite2D" parent="Level/Background" unique_id=734366734]
+z_index = -20
+texture_filter = 1
+position = Vector2(612, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_27" type="Sprite2D" parent="Level/Background" unique_id=1911516600]
+z_index = -20
+texture_filter = 1
+position = Vector2(636, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_28" type="Sprite2D" parent="Level/Background" unique_id=1124817572]
+z_index = -20
+texture_filter = 1
+position = Vector2(660, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_29" type="Sprite2D" parent="Level/Background" unique_id=284418484]
+z_index = -20
+texture_filter = 1
+position = Vector2(684, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_30" type="Sprite2D" parent="Level/Background" unique_id=2059562102]
+z_index = -20
+texture_filter = 1
+position = Vector2(708, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_31" type="Sprite2D" parent="Level/Background" unique_id=1510665147]
+z_index = -20
+texture_filter = 1
+position = Vector2(732, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_32" type="Sprite2D" parent="Level/Background" unique_id=5804211]
+z_index = -20
+texture_filter = 1
+position = Vector2(756, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_33" type="Sprite2D" parent="Level/Background" unique_id=1677610140]
+z_index = -20
+texture_filter = 1
+position = Vector2(780, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_34" type="Sprite2D" parent="Level/Background" unique_id=957552978]
+z_index = -20
+texture_filter = 1
+position = Vector2(804, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_35" type="Sprite2D" parent="Level/Background" unique_id=1363993454]
+z_index = -20
+texture_filter = 1
+position = Vector2(828, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_36" type="Sprite2D" parent="Level/Background" unique_id=320933319]
+z_index = -20
+texture_filter = 1
+position = Vector2(852, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_37" type="Sprite2D" parent="Level/Background" unique_id=1104547005]
+z_index = -20
+texture_filter = 1
+position = Vector2(876, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_38" type="Sprite2D" parent="Level/Background" unique_id=660609534]
+z_index = -20
+texture_filter = 1
+position = Vector2(900, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="CloudBand_39" type="Sprite2D" parent="Level/Background" unique_id=603428537]
+z_index = -20
+texture_filter = 1
+position = Vector2(924, 150)
+texture = ExtResource("3_w5nkq")
+
+[node name="CloudBand_40" type="Sprite2D" parent="Level/Background" unique_id=1242697722]
+z_index = -20
+texture_filter = 1
+position = Vector2(948, 150)
+texture = ExtResource("4_bk4f1")
+
+[node name="CloudBand_41" type="Sprite2D" parent="Level/Background" unique_id=955870310]
+z_index = -20
+texture_filter = 1
+position = Vector2(972, 150)
+texture = ExtResource("1_sx8yt")
+
+[node name="CloudBand_42" type="Sprite2D" parent="Level/Background" unique_id=1838830046]
+z_index = -20
+texture_filter = 1
+position = Vector2(996, 150)
+texture = ExtResource("2_k5r18")
+
+[node name="TerrainTileMaps" type="Node2D" parent="Level" unique_id=725461511]
+
+[node name="TerrainBase" type="TileMapLayer" parent="Level/TerrainTileMaps" unique_id=434062603]
+position = Vector2(9, 9)
+tile_map_data = PackedByteArray("AAACAAsAAAABAAEAAAACAAwAAAABAAIAAAACAA0AAAABAAMAAAADAAsAAAACAAEAAAADAAwAAAACAAIAAAADAA0AAAACAAMAAAAEAAsAAAACAAEAAAAEAAwAAAACAAIAAAAEAA0AAAACAAMAAAAFAAsAAAACAAEAAAAFAAwAAAACAAIAAAAFAA0AAAACAAMAAAAGAAsAAAACAAEAAAAGAAwAAAACAAIAAAAGAA0AAAACAAMAAAAHAAsAAAADAAEAAAAHAAwAAAADAAIAAAAHAA0AAAADAAMAAAAJAAkAAAABAAEAAAAJAAoAAAABAAIAAAAJAAsAAAABAAMAAAAKAAkAAAACAAEAAAAKAAoAAAACAAIAAAAKAAsAAAACAAMAAAALAAkAAAACAAEAAAALAAoAAAACAAIAAAALAAsAAAACAAMAAAAMAAkAAAADAAEAAAAMAAoAAAADAAIAAAAMAAsAAAADAAMAAAAOAAoAAAABAAEAAAAOAAsAAAABAAIAAAAOAAwAAAABAAMAAAAPAAoAAAACAAEAAAAPAAsAAAACAAIAAAAPAAwAAAACAAMAAAAQAAoAAAACAAEAAAAQAAsAAAACAAIAAAAQAAwAAAACAAMAAAARAAoAAAACAAEAAAARAAsAAAACAAIAAAARAAwAAAACAAMAAAASAAoAAAADAAEAAAASAAsAAAADAAIAAAASAAwAAAADAAMAAAAVAAUAAAABAAEAAAAVAAYAAAABAAMAAAAWAAUAAAACAAEAAAAWAAYAAAACAAMAAAAXAAUAAAACAAEAAAAXAAYAAAACAAMAAAAYAAUAAAADAAEAAAAYAAYAAAADAAMAAAAbAAQAAAABAAEAAAAbAAUAAAABAAMAAAAcAAQAAAACAAEAAAAcAAUAAAACAAMAAAAdAAQAAAADAAEAAAAdAAUAAAADAAMAAAAgAAYAAAABAAEAAAAgAAcAAAABAAMAAAAhAAYAAAACAAEAAAAhAAcAAAACAAMAAAAiAAYAAAADAAEAAAAiAAcAAAADAAMAAAAlAAkAAAABAAEAAAAlAAoAAAABAAIAAAAlAAsAAAABAAMAAAAmAAkAAAACAAEAAAAmAAoAAAACAAIAAAAmAAsAAAACAAMAAAAnAAkAAAACAAEAAAAnAAoAAAACAAIAAAAnAAsAAAACAAMAAAAoAAkAAAACAAEAAAAoAAoAAAACAAIAAAAoAAsAAAACAAMAAAApAAkAAAADAAEAAAApAAoAAAADAAIAAAApAAsAAAADAAMAAAAsAAUAAAABAAEAAAAsAAYAAAABAAIAAAAsAAcAAAABAAMAAAAtAAUAAAACAAEAAAAtAAYAAAACAAIAAAAtAAcAAAACAAMAAAAuAAUAAAACAAEAAAAuAAYAAAACAAIAAAAuAAcAAAACAAMAAAAvAAUAAAACAAEAAAAvAAYAAAACAAIAAAAvAAcAAAACAAMAAAAwAAUAAAACAAEAAAAwAAYAAAACAAIAAAAwAAcAAAACAAMAAAAxAAUAAAACAAEAAAAxAAYAAAACAAIAAAAxAAcAAAACAAMAAAAyAAUAAAACAAEAAAAyAAYAAAACAAIAAAAyAAcAAAACAAMAAAAzAAUAAAACAAEAAAAzAAYAAAACAAIAAAAzAAcAAAACAAMAAAA0AAUAAAADAAEAAAA0AAYAAAADAAIAAAA0AAcAAAADAAMAAAA=")
+tile_set = ExtResource("5_wu3ic")
+
+[node name="ActorsAndCharacters" type="Node2D" parent="Level" unique_id=631012954]
+
+[node name="Player" parent="Level/ActorsAndCharacters" unique_id=2098904787 instance=ExtResource("6_vv2vh")]
+position = Vector2(60, 180)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/ActorsAndCharacters/Player" unique_id=151099089]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_player")
+
+[node name="InteractionArea2" type="Area2D" parent="Level/ActorsAndCharacters/Player" unique_id=1906872785]
+collision_layer = 2
+collision_mask = 28
+
+[node name="Camera2D2" type="Camera2D" parent="Level/ActorsAndCharacters/Player" unique_id=1444263794]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 900
+limit_bottom = 270
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="PrefabInstances" type="Node2D" parent="Level" unique_id=2060373124]
+
+[node name="Hazards" type="Node2D" parent="Level/PrefabInstances" unique_id=1343486646]
+
+[node name="SpikesDouble" parent="Level/PrefabInstances/Hazards" unique_id=2096850736 instance=ExtResource("9_1rxxv")]
+position = Vector2(198, 162)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Hazards/SpikesDouble" unique_id=93394474]
+texture_filter = 1
+texture = ExtResource("10_ld1e4")
+
+[node name="DetectionArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Hazards/SpikesDouble" unique_id=204937928]
+position = Vector2(0, 4)
+shape = SubResource("Shape_spikes")
+
+[node name="Interactables" type="Node2D" parent="Level/PrefabInstances" unique_id=972933427]
+
+[node name="SpringRed" parent="Level/PrefabInstances/Interactables" unique_id=1939968450 instance=ExtResource("11_detxl")]
+position = Vector2(297, 180)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Interactables/SpringRed" unique_id=1517289404]
+texture_filter = 1
+texture = ExtResource("12_58p72")
+
+[node name="ActivationArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Interactables/SpringRed" unique_id=133583253]
+position = Vector2(0, 3)
+shape = SubResource("Shape_spring")
+
+[node name="@Area2D@2" parent="Level/PrefabInstances/Interactables" unique_id=451918344 instance=ExtResource("11_detxl")]
+position = Vector2(711, 162)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Interactables/@Area2D@2" unique_id=1300947417]
+texture_filter = 1
+texture = ExtResource("12_58p72")
+
+[node name="ActivationArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Interactables/@Area2D@2" unique_id=1514739306]
+position = Vector2(0, 3)
+shape = SubResource("Shape_spring")
+
+[node name="Door" parent="Level/PrefabInstances/Interactables" unique_id=1310241089 instance=ExtResource("13_365g5")]
+position = Vector2(859, 81)
+next_scene_path = "res://scenes/victory.tscn"
+prompt_text = "[F] 通关！"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Level/PrefabInstances/Interactables/Door" unique_id=1866041382]
+texture_filter = 1
+texture = ExtResource("15_os8re")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/PrefabInstances/Interactables/Door" unique_id=1278140631]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_door")
+
+[node name="PromptLabel2" type="Label" parent="Level/PrefabInstances/Interactables/Door" unique_id=277263731]
+visible = false
+z_index = 20
+texture_filter = 1
+offset_left = -60.0
+offset_top = -34.0
+offset_right = 60.0
+offset_bottom = -16.0
+theme_override_colors/font_color = Color(1, 0.95, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "[F] 进入下一关"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Collectibles" type="Node2D" parent="Level/PrefabInstances" unique_id=700022103]
+
+[node name="Coin_1" parent="Level/PrefabInstances/Collectibles" unique_id=1634592272 instance=ExtResource("16_ciptj")]
+position = Vector2(160, 150)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_1" unique_id=608906644]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_1" unique_id=1282398632]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_2" parent="Level/PrefabInstances/Collectibles" unique_id=999015698 instance=ExtResource("16_ciptj")]
+position = Vector2(198, 130)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_2" unique_id=1914680824]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_2" unique_id=1302522168]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_3" parent="Level/PrefabInstances/Collectibles" unique_id=80187688 instance=ExtResource("16_ciptj")]
+position = Vector2(235, 150)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_3" unique_id=699198733]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_3" unique_id=1561158116]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_4" parent="Level/PrefabInstances/Collectibles" unique_id=297090659 instance=ExtResource("16_ciptj")]
+position = Vector2(297, 135)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_4" unique_id=559363127]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_4" unique_id=518685470]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_5" parent="Level/PrefabInstances/Collectibles" unique_id=492800478 instance=ExtResource("16_ciptj")]
+position = Vector2(330, 90)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_5" unique_id=2124201901]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_5" unique_id=1244167321]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_6" parent="Level/PrefabInstances/Collectibles" unique_id=789066897 instance=ExtResource("16_ciptj")]
+position = Vector2(370, 70)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_6" unique_id=389583822]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_6" unique_id=111839385]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_7" parent="Level/PrefabInstances/Collectibles" unique_id=1972195545 instance=ExtResource("16_ciptj")]
+position = Vector2(415, 75)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_7" unique_id=469085354]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_7" unique_id=1925825523]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_8" parent="Level/PrefabInstances/Collectibles" unique_id=2045449196 instance=ExtResource("16_ciptj")]
+position = Vector2(495, 60)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_8" unique_id=1918153245]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_8" unique_id=978114858]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_9" parent="Level/PrefabInstances/Collectibles" unique_id=850253457 instance=ExtResource("16_ciptj")]
+position = Vector2(560, 50)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_9" unique_id=329221049]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_9" unique_id=696742039]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_10" parent="Level/PrefabInstances/Collectibles" unique_id=682688862 instance=ExtResource("16_ciptj")]
+position = Vector2(605, 95)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_10" unique_id=2135684747]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_10" unique_id=2025393852]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_11" parent="Level/PrefabInstances/Collectibles" unique_id=1832260166 instance=ExtResource("16_ciptj")]
+position = Vector2(650, 140)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_11" unique_id=930170838]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_11" unique_id=581609692]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_12" parent="Level/PrefabInstances/Collectibles" unique_id=1348770502 instance=ExtResource("16_ciptj")]
+position = Vector2(711, 115)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_12" unique_id=933598183]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_12" unique_id=564691970]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_13" parent="Level/PrefabInstances/Collectibles" unique_id=22563900 instance=ExtResource("16_ciptj")]
+position = Vector2(750, 75)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_13" unique_id=218370162]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_13" unique_id=266176510]
+shape = SubResource("Shape_coin")
+
+[node name="Coin_14" parent="Level/PrefabInstances/Collectibles" unique_id=1350663595 instance=ExtResource("16_ciptj")]
+position = Vector2(790, 60)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/Coin_14" unique_id=252584875]
+texture_filter = 1
+texture = ExtResource("17_jnlnj")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/Coin_14" unique_id=1649745248]
+shape = SubResource("Shape_coin")
+
+[node name="GemBlue_01" parent="Level/PrefabInstances/Collectibles" unique_id=464261057 instance=ExtResource("18_nhai6")]
+position = Vector2(513, 54)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/GemBlue_01" unique_id=1450421946]
+texture_filter = 1
+texture = ExtResource("19_0vrl8")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/GemBlue_01" unique_id=1631764587]
+shape = SubResource("Shape_gem")
+
+[node name="GemBlue_02" parent="Level/PrefabInstances/Collectibles" unique_id=1992550942 instance=ExtResource("18_nhai6")]
+position = Vector2(820, 70)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Collectibles/GemBlue_02" unique_id=1036658322]
+texture_filter = 1
+texture = ExtResource("19_0vrl8")
+
+[node name="PickupArea2" type="CollisionShape2D" parent="Level/PrefabInstances/Collectibles/GemBlue_02" unique_id=1639279207]
+shape = SubResource("Shape_gem")
+
+[node name="Signs" type="Node2D" parent="Level/PrefabInstances" unique_id=295925773]
+
+[node name="DirectionSignRight" parent="Level/PrefabInstances/Signs" unique_id=990593141 instance=ExtResource("20_1ke33")]
+position = Vector2(100, 189)
+
+[node name="Sprite2" type="Sprite2D" parent="Level/PrefabInstances/Signs/DirectionSignRight" unique_id=1485581477]
+texture_filter = 1
+texture = ExtResource("21_mnu1b")
